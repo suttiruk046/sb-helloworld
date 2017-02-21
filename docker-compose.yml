@@ -1,0 +1,19 @@
+version: '2'
+services:
+  app:
+    build: .
+    container_name: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo1
+    restart: always
+    env_file: .env
+    volumes:
+      - "/tmp:/tmp"
+  mongo1:
+    hostname: mongo1
+    image: mongo:3.2
+    ports:
+      - "27017:27017"
+    restart: always
