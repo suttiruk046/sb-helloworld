@@ -10,5 +10,7 @@
       <active>true</active>
       <protocol>https</protocol>
       <host>default-http-proxy.pink.ap-southeast-1.aws.openpaas.axa-cloud.com</host>
-  <proxies>
-</settings>
+      <port>8888</port>
+    </proxy>
+  </proxies>
+    </settings>
