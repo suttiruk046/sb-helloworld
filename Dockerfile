@@ -1,4 +1,4 @@
-FROM maven:alpine
+FROM maven
 WORKDIR /code
 #COPY setting.xml ${USER_HOME_DIR}/.m2/setting.xml 
 ADD . .
