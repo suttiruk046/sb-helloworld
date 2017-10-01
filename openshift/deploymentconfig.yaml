@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: sb-helloworld
+  name: sb-helloworld
+spec:
+  replicas: 1
+  selector:
+    app: sb-helloworld
+    deploymentconfig: sb-helloworld
+  strategy:
+    activeDeadlineSeconds: 21600
+    resources: {}
+    rollingParams:
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+    type: Rolling
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: sb-helloworld
+        deploymentconfig: sb-helloworld
+    spec:
+      containers:
+        - image: >-
+            openshift/sb-helloworld@latest
+          imagePullPolicy: Always
+          name: sb-helloworld
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+            - mountPath: /root/.m2
+              name: sb-helloworld-volume-1
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - emptyDir: {}
+          name: sb-helloworld-volume-1
+  test: false

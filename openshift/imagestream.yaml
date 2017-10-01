@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  generation: 1
+  labels:
+    app: sb-helloworld
+  name: sb-helloworld
+spec:
+  lookupPolicy:
+    local: false
