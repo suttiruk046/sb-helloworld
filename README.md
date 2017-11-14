@@ -1,2 +1,2 @@
-# Suttiruk Krutnoya
+# Suttiruk Krutnoy
 
